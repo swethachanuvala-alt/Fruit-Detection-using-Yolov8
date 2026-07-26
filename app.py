@@ -56,10 +56,9 @@ st.markdown("""
         animation: float-slow 7s ease-in-out infinite;
     }
  
-    /* Hide default streamlit chrome */
-    #MainMenu {visibility: hidden;}
+      /* Hide default streamlit chrome (keep header toolbar visible for Share/GitHub/menu) */
     footer {visibility: hidden;}
-    header {visibility: hidden;}
+    header {background: transparent;}
  
     /* Make sure real content sits above the decorative layer */
     .block-container { position: relative; z-index: 1; }
