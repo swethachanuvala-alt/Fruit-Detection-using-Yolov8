@@ -8,7 +8,7 @@ import time
 # Page settings
 # ----------------------------------------------------------------------
 st.set_page_config(
-    page_title="Fruit Object Detection",
+    page_title="Fruit Detection using YOLOv8",
     page_icon="🍉",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -261,7 +261,7 @@ with st.sidebar:
 st.markdown(
     """
     <div class="hero">
-        <h1>🍇 Fruit Object Detection</h1>
+        <h1>🍇 Fruit Detection using YOLOv8</h1>
         <p>Upload an image and let a YOLOv8 model find and label the fruits in it.</p>
     </div>
     """,
@@ -321,7 +321,7 @@ if uploaded_file is not None:
     )
 
     # Detected objects list
-    st.markdown('<div class="card"><h3>🍓 Detected Objects</h3>', unsafe_allow_html=True)
+    st.markdown('<div class="card"><h3> Detected Objects</h3>', unsafe_allow_html=True)
 
     if num_detections == 0:
         st.warning("No objects detected — try lowering the confidence threshold in the sidebar.")
@@ -330,11 +330,11 @@ if uploaded_file is not None:
             cls = int(box.cls)
             conf = float(box.conf)
             name = model.names[cls]
-            color = CLASS_COLORS.get(name.lower(), "#c939c9")
+            color = CLASS_COLORS.get(name.lower(), "#c02de4")
             st.markdown(
                 f"""
                 <div class="chip" style="border-left-color: {color};">
-                    <span class="name">🍉 {name}</span>
+                    <span class="name"> {name}</span>
                     <span class="conf">{conf:.1%}</span>
                 </div>
                 """,
